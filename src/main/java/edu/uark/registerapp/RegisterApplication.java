@@ -11,3 +11,7 @@ public class RegisterApplication {
 	}
 
 }
+
+//Tanner Edwards commit, Step 2-1 complete
+//Fernando Mota commit
+//Dalton Gillespie commit
