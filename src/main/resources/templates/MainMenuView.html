@@ -1,0 +1,51 @@
+<html xmlns:th="https://www.thymeleaf.org">
+    
+<head>
+		<title>Main Menu page</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1"> 
+
+        <link rel="stylesheet" type="text/css" href="/styles/master.css">
+        
+        <script type="text/javascript" src="/scripts/master.js" defer></script>
+        <script type="text/javascript" src="/scripts/mainmenu.js" defer></script>
+</head>
+	
+	<body>
+
+		<div class="header">
+			<h1 class="primary-message"><center> MAIN MENU</center> </h1>
+		</div>
+		
+		<div id="main" class="main">
+			<div id="error" th:class="${#strings.isEmpty(errorMessage)} ? hidden : ''">
+				<h4 id="errorMessage" class="error-message" th:text="${errorMessage}"></h4>
+			</div>
+
+			<div class="main">
+				<center><button type="button" id="strtrans"> Start Transaction </button></center>
+				<br> 
+				
+				<center><button id="viewproduct" type="button"> View Products </button></center>
+				<br> 
+				
+			</div>
+
+			<div class="main" id=th:class="not ${#strings.isElevatedUser()} ? hidden : ''">  <!--</div>style="visibility:hidden" id="makevis">-->
+				<center><button id="createemployee" type="button"> Create Employee </button></center>
+				<br> 
+				
+				<center><button type="button" id="salesreport"> Sales Report </button></center>
+				<br> 
+
+				<center><button type="button" id="cashreport"> Cashier Report </button></center>
+				<br> 
+			</div>
+		</div>
+
+        <div class="main">
+            <center><img src="/static/image" id="signout"></center>
+        </div>
+		
+
+	</body>
+</html>
