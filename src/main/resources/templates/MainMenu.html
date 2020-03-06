@@ -1,0 +1,51 @@
+<html xmlns:th="https://www.thymeleaf.org">
+    
+<head>
+		<title>Main Menu page</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1"> 
+
+        <link rel="stylesheet" type="text/css" href="/styles/master.css">
+        
+        <script type="text/javascript" src="/scripts/master.js" defer></script>
+        <script type="text/javascript" src="/scripts/mainmenu.js" defer></script>
+</head>
+	
+	<body>
+
+		<div class="header">
+			<h1 class="primary-message"><center> MAIN MENU</center> </h1>
+		</div>
+		
+		<div id="main" class="main">
+			<div id="error" th:class="${#strings.isEmpty(errorMessage)} ? hidden : ''">
+				<h4 id="errorMessage" class="error-message" th:text="${errorMessage}"></h4>
+			</div>
+
+			<div class="main">
+				<center><button type="button" onclick="Display()" id="strtrans"> Start Transaction </button></center>
+				<br> 
+				
+				<center><button id="viewproduct" onclick="Productlist()" type="button"> View Products </button></center>
+				<br> 
+				
+			</div>
+
+			<div class="main" id=th:class="not ${#strings.isElevatedUser()} ? hidden : ''">
+				<center><button id="createemployee" onclick="Employeedetials()" type="button"> Create Employee </button></center>
+				<br> 
+				
+				<center><button type="button" onclick="Display()" id="salesreport"> Sales Report </button></center>
+				<br> 
+
+				<center><button type="button" onclick="Display()" id="cashreport"> Cashier Report </button></center>
+				<br> 
+			</div>
+		</div>
+
+        <div class="main">
+            <center><img src="sign_out.png" onclick="Signout()" id="signout"></center>
+        </div>
+		
+
+	</body>
+</html>

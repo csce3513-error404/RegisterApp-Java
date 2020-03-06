@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset = "utf-8">
+        <script>
+            //js goes here
+            function validate() {
+                if (document.forms["signIn"]["employeeID"].value == "") {
+                    alert("Must enter employee ID");
+                    return false;
+                }
+                if (document.forms["signIn"]["password"].value == "") {
+                    alert("Must enter a password");
+                    return false;
+                }
+            }
+        </script>
+        <title>Sign In (Error-404)</title>
+    </head>
+    <body>
+        <form name="signIn" id="signIn" method="POST" onsubmit="return validate()" >
+            <p>Employee ID</p>
+            <input type="number" name="employeeID">
+            <br>
+            <p>Password</p>
+            <input type="password" name="password">
+            <br>
+            <br>
+            <input type="submit" value="Sign In">
+        </form>
+    </body>
+</html>
