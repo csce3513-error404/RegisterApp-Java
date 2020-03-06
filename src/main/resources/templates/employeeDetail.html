@@ -1,0 +1,83 @@
+<html xmlns:th="https://www.thymeleaf.org">
+
+<head>
+	<title>Register - Employee</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<link rel="stylesheet" type="text/css" href="/styles/master.css">
+
+	<script type="text/javascript" src="/scripts/master.js" defer></script>
+	<script type="text/javascript" src="/scripts/employeeDetail.js" defer></script>
+</head>
+
+<body>
+
+	<div class="header">
+		<h1 class="primary-message">Employee Detail</h1>
+	</div>
+		
+	<div id="main" class="main">
+		<div id="error" th:class="${#strings.isEmpty(errorMessage)} ? hidden : ''">
+			<h4 id="errorMessage" class="error-message" th:text="${errorMessage}"></h4>
+		</div>
+
+		<div class="inputContent">
+			<table id="employeeDetails">
+				<tbody>
+					<tr class="hidden">
+						<td>ID:</td>
+						<td>
+							<input id="employeeId" type="hidden" th:value="${!employee.isEmpty} ? ${employee.id} : ''" />
+						</td>
+					</tr>
+					<tr class="hidden">
+						<td>Manager ID:</td>
+						<td>
+							<input id="employeeManagerId" type="hidden" th:value="${!employee.isEmpty} ? ${employee.managerId} : ''" />
+						</td>
+					</tr>
+					<tr th:class="${employee.isEmpty} ? hidden : ''">
+						<td class="label">Employee ID:</td>
+						<td>
+							<input id="employeeEmployeeId" type="text" th:value="${!employee.isEmpty} ? ${employee.employeeId} : ''" class="update" disabled />
+						</td>
+					</tr>
+					<form action="/MainMenu.html" method="put" id="form">
+						<label for="fname">First name:</label>
+                        <input type="text" id="fname" name="fname"><br><br>
+                        <label for="lname">Last name:</label>
+                        <input type="text" id="lname" name="lname"><br><br>
+                        <lable for="password">Password:</lable>
+                        <input type ="password" id="Password" name="Password"><br><br>
+                        <label for="ConPass">Confirm Password:</label>
+                        <input type="password" id="ConPass" name="Conpass"><br><br>
+                        <label for="EmpType">Select Employee Type:</label>
+                        <select id="EmpType">
+                            <option value="Cashier">Cashier</option>
+                            <option value="ShiftMgr">Shift Manager</option>
+                            <option value="GenMgr">General Manager</option>
+						</select><br><br>
+						<button id="saveButton" type="button" form="form">Save</button>
+					</form>
+                        
+				</tbody>
+			</table>
+        </div>
+        
+		
+		<div id="employeeSavedAlertModal" class="modal animate-opacity-show">
+			<div class="modal-content">
+				<div class="container gray-blue">
+					<h1>
+						<span>Employee</span><br />
+						<span>Saved</span>
+					</h1>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="footer" th:classappend="${employee.isInitialEmployee} ? hidden : ''">
+		<img id="signOutImage" src="/images/Sign-Out.png" alt="Sign Out" class="footer" />
+	</div>
+</body>
+</html>
